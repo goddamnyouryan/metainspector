@@ -38,7 +38,7 @@ module MetaInspector
         return nil if candidates.empty?
         candidates.map! { |c| c.gsub(/\s+/, ' ') }
         candidates.uniq!
-        candidates.sort_by! { |t| -t.length }
+        candidates.sort_by! { |t| t.length }
         candidates.first
       end
 
