@@ -11,7 +11,7 @@ module MetaInspector
 
       def best_title
         @best_title = meta['og:title'] if @main_parser.host =~ /\.youtube\.com$/
-        @best_title ||= find_best_title
+        @best_title ||= find_best_title.first
       end
 
       def all_titles
@@ -43,7 +43,7 @@ module MetaInspector
         candidates.map! { |c| c.gsub(/\s+/, ' ') }
         candidates.uniq!
         candidates.sort_by! { |t| -t.length }
-        candidates.first
+        candidates
       end
 
       # Look for the first <p> block with 120 characters or more
