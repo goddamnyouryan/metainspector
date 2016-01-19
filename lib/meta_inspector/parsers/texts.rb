@@ -11,7 +11,7 @@ module MetaInspector
 
       def best_title
         @best_title = meta['og:title'] if @main_parser.host =~ /\.youtube\.com$/
-        @best_title ||= find_best_title.first
+        @best_title ||= find_best_title
       end
 
       def all_titles
